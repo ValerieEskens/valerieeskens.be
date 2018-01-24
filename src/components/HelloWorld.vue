@@ -84,12 +84,21 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  created: function () {
+    console.log('created')
+    axios.get('https://api.cosmicjs.com/v1/valerieeskensbe/object/the-strength-of-passion?pretty=true&hide_metafields=true&revision=5a6891b9fe8dbd0b4725dda6')
+      .then(res => {
+        console.log(res)
+      })
   }
 }
 </script>
