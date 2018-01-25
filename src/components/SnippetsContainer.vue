@@ -1,6 +1,7 @@
 <template>
   <div class="snippets">
     <Highlight
+      class="snippet"
       v-for="(highlight, key) in highlights"
       :key="key+10"
       :content="highlight.highlight"
