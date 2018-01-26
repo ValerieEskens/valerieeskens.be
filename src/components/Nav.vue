@@ -1,22 +1,11 @@
 <template>
   <nav>
-    <div class="nav--left">
-      <div
-        v-for="(navItem, key) in leftNav"
-        :key="key"
-        class="nav__item"
-      >
-        {{ navItem.name }}
-      </div>
-    </div>
-    <div class="nav--right">
-      <div
-        v-for="(navItem, key) in rightNav"
-        :key="key"
-        class="nav__item"
-      >
-        {{ navItem.name }}
-      </div>
+    <div
+      v-for="(navItem, key) in navItems"
+      :key="key"
+      class="nav__item"
+    >
+      {{ navItem.name }}
     </div>
   </nav>
 </template>
@@ -32,50 +21,31 @@
         { name: '#blogposts' }
       ]
     }
-  },
-  computed: {
-    halfNav () {
-      return this.navItems.length / 2
-    },
-    leftNav () {
-      return this.navItems.slice(0, this.halfNav)
-    },
-    rightNav () {
-      return this.navItems.slice(this.halfNav)
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 nav {
-  height: 50px;
-  position: relative;
-}
-
-.nav--left, .nav--right {
-  position: absolute;
-  width: calc(50% - 50px);
-}
-
-.nav--left {
-  left: 0;
-}
-
-.nav--right {
-  right: 0;
+ width: 80%;
+ margin: 0 auto;
 }
 
 .nav__item {
+  width: 100px;
+  box-sizing: border-box;
+  margin: 0 calc((100% - 400px) / 6);
+  padding: 20px 0;
   display: inline-block;
-  padding: 20px 10%;
 
   &:first-child {
-    padding-left: 15%;
+    margin-left: 0;
+    text-align: left;
   }
 
   &:last-child {
-    padding-right: 15%;
+    margin-right: 0;
+    text-align: right;
   }
 }
 </style>
