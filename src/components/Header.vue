@@ -1,7 +1,9 @@
 <template>
   <header>
-    <div class="header__photo">Header</div>
-    <div class="header__my-photo">Photo</div>
+    <div class="header__name">
+      <img src="../assets/valerie.svg" alt="">
+      <img src="../assets/eskens.svg" alt="">
+    </div>
   </header>
 </template>
 
@@ -11,15 +13,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   position: relative;
 }
 
-.header__photo {
+.header__name {
   border: 1px solid black;
-  height: 200px;
-  width: 100%;
+  padding: 80px 0;
+
+  img {
+    width: 49%;
+}
 }
 
 .header__my-photo {
@@ -32,4 +37,5 @@ header {
   position: absolute;
   width: 100px;
 }
+
 </style>
