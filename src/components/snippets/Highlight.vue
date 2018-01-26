@@ -1,7 +1,7 @@
 <template>
   <div class="highlight" @click="goToSource()">
       <img class="quote-icon" src="../../assets/quote.png" alt="quote">
-      <div v-html="content" class="highlight__content"></div>
+      <div class="highlight__content">{{ content }}</div>
       <div class="highlight__author">— {{ author }}</div>
   </div>
 </template>
