@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+/* eslint-disable no-unused-vars */
 import styles from './styles.scss'
 
 Vue.config.productionTip = false
