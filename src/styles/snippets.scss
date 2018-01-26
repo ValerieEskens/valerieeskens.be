@@ -1,5 +1,5 @@
 @mixin snippetsLayout($snippetsPerRow, $snippetSize) {
-  $snippetMargin: calc((100% - #{$snippetSize * $snippetsPerRow}px) / #{$snippetsPerRow * 2});
+  $snippetMargin: calc((100% - #{$snippetSize * $snippetsPerRow}px) / #{$snippetsPerRow - 1});
 
   width: $snippetSize + px;
   height: $snippetSize + px;
@@ -8,12 +8,12 @@
 
   // first column
   &:nth-child(#{$snippetsPerRow}n -#{$snippetsPerRow - 1}) {
-    margin-left: $snippetMargin;
+    margin-left: 0;
   }
 
   // last column
   &:nth-child(#{$snippetsPerRow}n) {
-    margin-right: $snippetMargin;
+    margin-right: 0;
   }
 
   // first row
@@ -27,19 +27,25 @@
   }
 }
 
-// $colors: $blue, $green, $yellow, $red;
-// #F4BE75
-// #CC787F
-// #A36E81
-// #655C77
-// #4A5B78
+.snippets {
+  width: 80%;
+  margin: 0 auto;
+}
 
 .snippet {
-  border: 1px solid grey;
-  border-radius: 10px;
+  border-width: 0;
+  border-style: solid;
+  border-radius: 5px;
   box-sizing: border-box;
   display: inline-block;
   overflow: hidden;
+}
+
+@media screen and (max-width: 400px) {
+  .snippet {
+    width: 90%;
+    
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -48,19 +54,19 @@
     }
 }
 
-@media screen and (min-width: 450px) and (max-width: 700px) {
+@media screen and (min-width: 450px) and (max-width: 800px) {
     .snippet {
       @include snippetsLayout($snippetsPerRow: 2, $snippetSize: 200);
     }
 }
 
-@media screen and (min-width: 700px) and (max-width: 950px) {
+@media screen and (min-width: 800px) and (max-width: 1050px) {
     .snippet {
       @include snippetsLayout($snippetsPerRow: 3, $snippetSize: 200);
     }
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1050px) {
     .snippet {
       @include snippetsLayout($snippetsPerRow: 4, $snippetSize: 200);
     }
