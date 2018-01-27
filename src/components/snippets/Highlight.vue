@@ -22,7 +22,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../../styles/colors';
+
 .highlight {
   padding: 20px;
   padding-top: 30px;
@@ -30,6 +32,9 @@ export default {
   text-align: left;
   font-size: 16px;
   position: relative;
+  box-shadow:
+    2px 2px 3px 1px map-get($colors, 'highlight'),
+    inset 0 0 5px 1px map-get($colors, 'highlight');
 }
 
 .highlight__author {
@@ -49,12 +54,4 @@ export default {
   width: 100px;
 }
 
-/* .quote-icon {
-  opacity: .15;
-  position: absolute;
-  bottom: -24px;
-  right: -15px;
-  width: 100px;
-  transform: scale(-1);
-} */
 </style>

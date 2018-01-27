@@ -1,8 +1,7 @@
 <template>
   <header>
     <div class="header__name">
-      <img src="../assets/valerie.svg" alt="">
-      <img src="../assets/eskens.svg" alt="">
+      <img src="../assets/valerieeskens.svg" alt="">
     </div>
   </header>
 </template>
@@ -23,8 +22,8 @@ header {
   padding: 80px 0;
 
   img {
-    width: 49%;
-}
+    width: 100%;
+  }
 }
 
 .header__my-photo {
