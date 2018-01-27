@@ -10,10 +10,5 @@
   width: 200px;
   height: 200px;
   margin: 10px auto;
+  cursor: pointer;
 }
-
-// @media screen and (min-width: 400px) and (max-width: 519px) {
-//     .snippet {
-//       @include snippetsLayout($snippetsPerRow: 1, $snippetSize: 300);
-//     }
-// }
