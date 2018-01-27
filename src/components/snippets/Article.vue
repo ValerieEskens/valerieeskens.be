@@ -27,6 +27,9 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  box-shadow:
+    2px 2px 3px 1px map-get($colors, 'article'),
+    inset 0 0 5px 1px map-get($colors, 'article');
 }
 
 .highlight__author {

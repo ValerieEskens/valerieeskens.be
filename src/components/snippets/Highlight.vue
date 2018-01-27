@@ -26,7 +26,6 @@ export default {
 @import '../../styles/colors';
 
 .highlight {
-  padding: 20px;
   padding-top: 30px;
   line-height: 1.4;
   text-align: left;
