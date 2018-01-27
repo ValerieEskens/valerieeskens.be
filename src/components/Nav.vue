@@ -19,7 +19,7 @@
         { name: 'highlights', class: 'highlight' },
         { name: 'articles', class: 'article' },
         { name: 'valerie', class: 'valerie' },
-        { name: 'blogposts', class: 'blogpost' },
+        { name: 'blogposts', class: 'blogpost' }
       ]
     }
   }
@@ -41,30 +41,22 @@
 }
 
 nav {
- width: 80%;
+ width: 90%;
  margin: 0 auto;
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .nav__item {
-  width: 110px;
-  box-sizing: border-box;
-  margin: 0 calc((100% - 440px) / 6);
-  display: inline-block;
+  margin: 20px;
+  padding: 5px;
   font-size: 20px;
   text-align: center;
   border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 5px;
   cursor: pointer;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
 
   @each $type, $color in $colors {
     &.#{$type} {
@@ -75,6 +67,30 @@ nav {
         color: white;
       }
     }
+  }
+}
+
+@media all and (max-width: 600px) {
+    .nav__item { 
+        font-size: 17px !important;
+    }
+}
+
+@media all and (max-width: 550px) {
+  nav {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+  
+  .nav__item { 
+    border-top: 1px solid rgba(255,255,255,0.3); 
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin: 0px !important;
+  }
+
+  
+  .nav__item:last-child {
+    border-bottom: none;
   }
 }
 

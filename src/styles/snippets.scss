@@ -1,73 +1,19 @@
-@mixin snippetsLayout($snippetsPerRow, $snippetSize) {
-  $snippetMargin: calc((100% - #{$snippetSize * $snippetsPerRow}px) / #{$snippetsPerRow - 1});
-
-  width: $snippetSize + px;
-  height: $snippetSize + px;
-  margin-right: $snippetMargin;
-  margin-bottom: $snippetMargin;
-
-  // first column
-  &:nth-child(#{$snippetsPerRow}n -#{$snippetsPerRow - 1}) {
-    margin-left: 0;
-  }
-
-  // last column
-  &:nth-child(#{$snippetsPerRow}n) {
-    margin-right: 0;
-  }
-
-  // first row
-  &:nth-child(-n+#{$snippetsPerRow}) {
-    margin-top: $snippetMargin;
-  }
-
-  // last row
-  &:nth-last-child(-n+#{$snippetsPerRow}) {
-    margin-bottom: $snippetMargin;
-  }
-}
-
 .snippets {
-  width: 80%;
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
 .snippet {
-  border-width: 0;
-  border-style: solid;
-  border-radius: 5px;
-  box-sizing: border-box;
-  display: inline-block;
-  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
 }
 
-@media screen and (max-width: 400px) {
-  .snippet {
-    width: 90%;
-    
-  }
-}
-
-@media screen and (max-width: 450px) {
-    .snippet {
-      @include snippetsLayout($snippetsPerRow: 1, $snippetSize: 300);
-    }
-}
-
-@media screen and (min-width: 450px) and (max-width: 800px) {
-    .snippet {
-      @include snippetsLayout($snippetsPerRow: 2, $snippetSize: 200);
-    }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1050px) {
-    .snippet {
-      @include snippetsLayout($snippetsPerRow: 3, $snippetSize: 200);
-    }
-}
-
-@media screen and (min-width: 1050px) {
-    .snippet {
-      @include snippetsLayout($snippetsPerRow: 4, $snippetSize: 200);
-    }
-}
+// @media screen and (min-width: 400px) and (max-width: 519px) {
+//     .snippet {
+//       @include snippetsLayout($snippetsPerRow: 1, $snippetSize: 300);
+//     }
+// }
