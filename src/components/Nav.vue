@@ -71,7 +71,7 @@ nav {
 }
 
 @media all and (max-width: 600px) {
-    .nav__item { 
+    .nav__item {
         font-size: 17px !important;
     }
 }
@@ -81,14 +81,13 @@ nav {
     flex-flow: column wrap;
     padding: 0;
   }
-  
-  .nav__item { 
-    border-top: 1px solid rgba(255,255,255,0.3); 
+
+  .nav__item {
+    border-top: 1px solid rgba(255,255,255,0.3);
     border-bottom: 1px solid rgba(0,0,0,0.1);
     margin: 0px !important;
   }
 
-  
   .nav__item:last-child {
     border-bottom: none;
   }

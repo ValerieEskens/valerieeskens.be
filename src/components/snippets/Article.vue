@@ -1,21 +1,20 @@
 <template>
-  <div class="article" @click="goToSource()" :style="{'background-image': `url(${image})`}">
-      <div class="article__author">— {{author}}</div>
+  <div class="article" @click="goToSource()" :style="{'background-image': `url(${snippet.image})`}">
+      <div class="article__author">— {{snippet.author}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Highight',
-  props: {
-    image: String,
-    source: String,
-    author: String
-  },
+  name: 'Article',
+  props: ['snippet'],
   methods: {
     goToSource () {
-      window.open(this.source)
+      window.open(this.snippet.source)
     }
+  },
+  created () {
+    console.log('snippet highlight', this.snippet)
   }
 }
 </script>
