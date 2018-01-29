@@ -8,6 +8,7 @@
       :key="`${snippet.type}-${key}`"
       :is="snippet.type"
       :snippet="snippet"
+      :style="{'grid-area': snippet.enlarge}"
     >
     </component>
   </div>
@@ -26,7 +27,8 @@ export default {
     return {
       highlights: highlights,
       articles: articles,
-      snippets: [...articles, ...highlights]
+      snippets: [...articles, ...highlights],
+      enlargeAreas: ['a', 'b', 'c', 'd', 'e']
     }
   },
   computed: {
@@ -39,8 +41,20 @@ export default {
         let temporarySnippet = myRandomizedSnippets[currentIndex]
         myRandomizedSnippets[currentIndex] = myRandomizedSnippets[randomIndex]
         myRandomizedSnippets[randomIndex] = temporarySnippet
+        myRandomizedSnippets[randomIndex].enlarge = this.randomEnlarge()
       }
       return myRandomizedSnippets
+    }
+  },
+  methods: {
+    randomEnlarge () {
+      if (this.enlargeAreas.length > 0) {
+        let enlargeIndex = Math.floor(Math.random() * this.enlargeAreas.length)
+        let enlargeArea = this.enlargeAreas[enlargeIndex]
+        this.enlargeAreas.splice(enlargeIndex, 1)
+        return enlargeArea
+      }
+      return ''
     }
   }
 }

@@ -1,15 +1,21 @@
 .snippets {
-  display: flex;
+  display: grid;
   width: 90%;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  min-height: 100vh;
   margin: 0 auto;
+  grid-template-areas:
+    'a a d'
+    'a a b'
+    'e c c';
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
 }
 
 .snippet {
-  width: 200px;
-  height: 200px;
-  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   padding: 20px;
+  min-height: 100px;
 }
