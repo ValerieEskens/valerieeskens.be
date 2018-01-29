@@ -20,7 +20,6 @@ export default {
   .header__name {
     border: 1px solid black;
     padding: 50px 0;
-    visibility: hidden;
 
     img {
       width: 100%;
