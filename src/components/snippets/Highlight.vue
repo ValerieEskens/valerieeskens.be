@@ -27,9 +27,6 @@ export default {
   text-align: left;
   font-size: 16px;
   position: relative;
-  box-shadow:
-    2px 2px 3px 1px map-get($colors, 'highlight'),
-    inset 0 0 5px 1px map-get($colors, 'highlight');
 }
 
 .highlight__author {
