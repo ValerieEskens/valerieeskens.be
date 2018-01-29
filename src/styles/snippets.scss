@@ -3,13 +3,9 @@
   width: 90%;
   min-height: 100vh;
   margin: 0 auto;
-  grid-template-areas:
-    'a a d'
-    'a a b'
-    'e c c';
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  grid-auto-flow: row;
+  grid-auto-flow: dense;
   grid-auto-columns: 1fr;
 }
 
@@ -18,4 +14,58 @@
   cursor: pointer;
   padding: 20px;
   min-height: 100px;
+}
+
+@media all and (max-width: 450px) {
+  .snippets {
+    grid-template-areas:
+      '.'
+      '.'
+      '.';
+  }
+}
+
+@media all and (min-width: 450px) and (max-width: 600px) {
+  .snippets {
+    grid-template-areas:
+      '. .'
+      '. .'
+      '. .';
+  }
+}
+
+@media all and (min-width: 600px) and (max-width: 800px) {
+  .snippets {
+    grid-template-areas:
+      '. . .'
+      '. . .'
+      '. . .';
+  }
+}
+
+@media all and (min-width: 800px) and (max-width: 1000px) {
+  .snippets {
+    grid-template-areas:
+      '. . . .'
+      '. . . .'
+      '. . . .';
+  }
+}
+
+@media all and (min-width: 1000px) and (max-width: 1200px) {
+  .snippets {
+    grid-template-areas:
+      '. . . . .'
+      '. . . . .'
+      '. . . . .';
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .snippets {
+    grid-template-areas:
+      '. . . . . .'
+      '. . . . . .'
+      '. . . . . .';
+  }
 }

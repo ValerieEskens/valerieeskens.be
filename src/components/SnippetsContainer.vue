@@ -27,8 +27,8 @@ export default {
     return {
       highlights: highlights,
       articles: articles,
-      snippets: [...articles, ...highlights],
-      enlargeAreas: ['a', 'b', 'c', 'd', 'e']
+      snippets: [...articles, ...highlights, ...articles, ...highlights],
+      enlargeAreas: ['a', 'b']
     }
   },
   computed: {
