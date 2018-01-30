@@ -18,8 +18,7 @@ export default {
   }
 
   .header__name {
-    border: 1px solid black;
-    padding: 50px 0;
+    padding: 50px 5%;
 
     img {
       width: 100%;
