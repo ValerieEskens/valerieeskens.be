@@ -16,56 +16,20 @@
   min-height: 100px;
 }
 
-@media all and (max-width: 450px) {
-  .snippets {
-    grid-template-areas:
-      '.'
-      '.'
-      '.';
+
+@mixin media($min, $max, $cols) {
+  @media all and (min-width: $min) and (max-width: $max) {
+    .snippets {
+      grid-template-columns: repeat($cols, 1fr);
+    }
   }
 }
 
-@media all and (min-width: 450px) and (max-width: 600px) {
-  .snippets {
-    grid-template-areas:
-      '. .'
-      '. .'
-      '. .';
-  }
-}
-
-@media all and (min-width: 600px) and (max-width: 800px) {
-  .snippets {
-    grid-template-areas:
-      '. . .'
-      '. . .'
-      '. . .';
-  }
-}
-
-@media all and (min-width: 800px) and (max-width: 1000px) {
-  .snippets {
-    grid-template-areas:
-      '. . . .'
-      '. . . .'
-      '. . . .';
-  }
-}
-
-@media all and (min-width: 1000px) and (max-width: 1200px) {
-  .snippets {
-    grid-template-areas:
-      '. . . . .'
-      '. . . . .'
-      '. . . . .';
-  }
-}
-
-@media all and (min-width: 1200px) {
-  .snippets {
-    grid-template-areas:
-      '. . . . . .'
-      '. . . . . .'
-      '. . . . . .';
-  }
-}
+@include media(0px, 400px, 1);
+@include media(400px, 600px, 2);
+@include media(600px, 800px, 3);
+@include media(800px, 1000px, 4);
+@include media(1000px, 1200px, 5);
+@include media(1200px, 1400px, 6);
+@include media(1400px, 1600px, 7);
+@include media(1600px, 9999px, 8);
