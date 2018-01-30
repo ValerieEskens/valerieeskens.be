@@ -16,20 +16,20 @@
   min-height: 100px;
 }
 
-
 @mixin media($min, $max, $cols) {
-  @media all and (min-width: $min) and (max-width: $max) {
+  @media all and (min-width: $min+px) and (max-width: $max+px) {
     .snippets {
       grid-template-columns: repeat($cols, 1fr);
     }
   }
 }
 
-@include media(0px, 400px, 1);
-@include media(400px, 600px, 2);
-@include media(600px, 800px, 3);
-@include media(800px, 1000px, 4);
-@include media(1000px, 1200px, 5);
-@include media(1200px, 1400px, 6);
-@include media(1400px, 1600px, 7);
-@include media(1600px, 9999px, 8);
+$breakpoints: (500, 700, 900, 1100, 1300, 1500, 1700);
+$prevBreakpoint: 0;
+$cols: 1;
+
+@each $breakpoint in $breakpoints {
+  @include media($prevBreakpoint, $breakpoint, $cols);
+  $prevBreakpoint: $breakpoint;
+  $cols: $cols + 1;
+}
