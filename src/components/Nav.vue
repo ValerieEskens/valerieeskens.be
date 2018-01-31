@@ -41,8 +41,8 @@
 }
 
 nav {
- width: 90%;
- margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   width: 90%;
   flex-wrap: wrap;
@@ -51,6 +51,7 @@ nav {
 }
 
 .nav__item {
+  z-index: 1;
   margin: 20px;
   padding: 5px;
   font-size: 20px;

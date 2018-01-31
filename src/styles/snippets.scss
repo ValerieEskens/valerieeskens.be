@@ -14,6 +14,7 @@
   cursor: pointer;
   padding: 20px;
   min-height: 100px;
+  z-index: 1;
 }
 
 .snippet:nth-child(1) { grid-area: a; }

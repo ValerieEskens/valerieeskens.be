@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <Header/>
-    <Nav/>
-    <router-view/>
+    <div id="background">
+      <Header/>
+      <Nav/>
+    </div>
+    <div id="content">
+      <router-view/>
+      </div>
   </div>
 </template>
 

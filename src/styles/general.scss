@@ -6,9 +6,36 @@ body {
   text-align: center;
   color: #2c3e50;
   margin: 0;
+  
+}
+
+#background {
   background-color: #000;
   background: url("./assets/ivana-cajina-316246.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+
+  &:after {
+    content: '';
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-image: linear-gradient(
+      to top,
+      rgba(16, 16, 16, 1.0) 5%,
+      rgba(16, 16, 16, 0.9) 10%,
+      rgba(16, 16, 16, 0.5)  15%,
+      rgba(16, 16, 16, 0.2)  20%,
+      rgba(16, 16, 16, 0.0)  100%);
+  }
+}
+
+#content {
+  background: rgb(16, 16, 16)
 }
