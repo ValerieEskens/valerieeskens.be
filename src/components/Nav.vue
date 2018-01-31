@@ -5,22 +5,39 @@
       :key="key"
       class="nav__item"
       :class="navItem.class"
+      @click="filterEvent(navItem.type)"
     >
       #{{ navItem.name }}
     </div>
   </nav>
 </template>
 
-<script>export default {
+<script>
+import { EventBus } from '@/eventbus'
+
+export default {
   name: 'Nav',
   data () {
     return {
+      filters: [],
       navItems: [
-        { name: 'highlights', class: 'highlight' },
-        { name: 'articles', class: 'article' },
-        { name: 'valerie', class: 'valerie' },
-        { name: 'blogposts', class: 'blogpost' }
+        { name: 'highlights', class: 'highlight', type: 'highlight' },
+        { name: 'articles', class: 'article', type: 'web-article' },
+        { name: 'valerie', class: 'valerie', type: 'valerie' },
+        { name: 'blogposts', class: 'blogpost', type: 'blogpost' }
       ]
+    }
+  },
+  methods: {
+    filterEvent (filter) {
+      debugger
+      const filterIndex = this.filters.indexOf(filter)
+      if (filterIndex !== -1) {
+        this.filters.splice(filterIndex, 1)
+      } else {
+        this.filters.push(filter)
+      }
+      EventBus.$emit('filter', this.filters)
     }
   }
 }
