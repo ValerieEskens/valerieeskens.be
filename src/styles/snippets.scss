@@ -16,20 +16,88 @@
   min-height: 100px;
 }
 
-@mixin media($min, $max, $cols) {
+.snippet:nth-child(1) { grid-area: a; }
+.snippet:nth-child(2) { grid-area: b; }
+.snippet:nth-child(3) { grid-area: c; }
+.snippet:nth-child(4) { grid-area: d; }
+.snippet:nth-child(5) { grid-area: e; }
+.snippet:nth-child(6) { grid-area: f; }
+.snippet:nth-child(7) { grid-area: g; }
+.snippet:nth-child(8) { grid-area: h; }
+.snippet:nth-child(9) { grid-area: i; }
+.snippet:nth-child(10) { grid-area: j; }
+.snippet:nth-child(11) { grid-area: k; }
+.snippet:nth-child(12) { grid-area: l; }
+.snippet:nth-child(13) { grid-area: m; }
+.snippet:nth-child(14) { grid-area: n; }
+.snippet:nth-child(15) { grid-area: o; }
+.snippet:nth-child(16) { grid-area: p; }
+
+@mixin media($min, $max, $area) {
   @media all and (min-width: $min+px) and (max-width: $max+px) {
     .snippets {
-      grid-template-columns: repeat($cols, 1fr);
+      grid-template-areas: $area;
     }
   }
 }
 
-$breakpoints: (500, 700, 900, 1100, 1300, 1500, 1700);
 $prevBreakpoint: 0;
-$cols: 1;
+$breakpoint-map: (
+  500: 
+    "a"
+    "b"
+    "c"
+    "d"
+    "e"
+    "f"
+    "g"
+    "h"
+    "i"
+    "j"
+    "k"
+    "l"
+    "m"
+    "n"
+    "o"
+    "p",
+  700: 
+    "a b"
+    "c d"
+    "e f"
+    "g h"
+    "i j"
+    "k l"
+    "m n"
+    "o p",
+  900:
+    "a b c"
+    "a d e"
+    "f g g"
+    "i j k"
+    "l m n"
+    "h o p",
+  1100:
+    "a b c d"
+    "e f g h"
+    "i j k l"
+    "m n o p",
+  1300:
+    "a a b c d"
+    "a a e f g"
+    "h i j k l"
+    "m n o p l",
+  1500:
+    "a b d f h j"
+    "a c e g g j"
+    "n m e l k k"
+    "i m e l p o",
+  9999:
+    "a a d e f g h"
+    "a a l k b j i"
+    "m c c n b o p"
+);
 
-@each $breakpoint in $breakpoints {
-  @include media($prevBreakpoint, $breakpoint, $cols);
+@each $breakpoint, $area in $breakpoint-map {
+  @include media($prevBreakpoint, $breakpoint, $area);
   $prevBreakpoint: $breakpoint;
-  $cols: $cols + 1;
 }

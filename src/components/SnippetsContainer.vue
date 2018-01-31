@@ -41,20 +41,8 @@ export default {
         let temporarySnippet = myRandomizedSnippets[currentIndex]
         myRandomizedSnippets[currentIndex] = myRandomizedSnippets[randomIndex]
         myRandomizedSnippets[randomIndex] = temporarySnippet
-        myRandomizedSnippets[randomIndex].enlarge = this.randomEnlarge()
       }
       return myRandomizedSnippets
-    }
-  },
-  methods: {
-    randomEnlarge () {
-      if (this.enlargeAreas.length > 0) {
-        let enlargeIndex = Math.floor(Math.random() * this.enlargeAreas.length)
-        let enlargeArea = this.enlargeAreas[enlargeIndex]
-        this.enlargeAreas.splice(enlargeIndex, 1)
-        return enlargeArea
-      }
-      return ''
     }
   }
 }
