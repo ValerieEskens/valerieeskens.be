@@ -1,18 +1,19 @@
 <template>
   <div class="highlight" @click="goToSource()">
       <img class="quote-icon" src="../../assets/quote.png" alt="quote">
-      <div class="highlight__content">{{snippet.highlight}}</div>
-      <div class="highlight__author">— {{snippet.author}}</div>
+      <div class="highlight__content">{{highlight}}</div>
+      <div class="highlight__author">— {{author}}</div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Highlight',
-  props: ['snippet'],
+  // props: ['snippet'],
+  props: ['source', 'author', 'highlight'],
   methods: {
     goToSource () {
-      window.open(this.snippet.source)
+      window.open(this.source)
     }
   }
 }

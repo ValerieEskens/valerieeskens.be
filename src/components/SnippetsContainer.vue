@@ -5,7 +5,7 @@
     <p>blogposts</p>
     <p>valerie</p>
     <div class="snippets">
-      <component
+      <!-- <component
         class="snippet"
         :class="snippet.type"
         v-for="(snippet, key) in filteredSnippets"
@@ -14,7 +14,26 @@
         :snippet="snippet"
         :style="{'grid-area': snippet.enlarge}"
       >
-      </component>
+      </component> -->
+      <Article
+        v-if="filteredOn('article')"
+        class="snippet"
+        v-for="(article, key) in articles"
+        :key="key+10"
+        :image="article.image"
+        :source="article.source"
+        :author="article.author"
+      />
+
+    <Highlight
+        v-if="filteredOn('highlight')"
+        class="snippet"
+        v-for="(highlight, key) in highlights"
+        :key="key"
+        :content="highlight.highlight"
+        :source="highlight.source"
+        :author="highlight.author"
+      />
     </div>
   </div>
 </template>
@@ -22,7 +41,7 @@
 <script>
 import Highlight from '@/components/snippets/Highlight.vue'
 import highlights from '@/data/highlights.json'
-import WebArticle from '@/components/snippets/Article.vue'
+import Article from '@/components/snippets/Article.vue'
 import articles from '@/data/articles.json'
 import { EventBus } from '@/eventbus'
 
@@ -35,9 +54,11 @@ const FILTERS = {
 
 export default {
   name: 'SnippetsContainer',
-  components: { Highlight, WebArticle },
+  components: { Highlight, Article },
   data () {
     return {
+      articles: [...articles, ...articles],
+      highlights: [...highlights, ...highlights],
       snippets: [...articles, ...highlights, ...articles, ...highlights],
       filters: []
     }
@@ -74,6 +95,9 @@ export default {
     }
   },
   methods: {
+    filteredOn (type) {
+      return this.filters.indexOf(type) !== -1
+    },
     filter (filter) {
       const filterIndex = this.filters.indexOf(filter)
       if (filterIndex !== -1) {
