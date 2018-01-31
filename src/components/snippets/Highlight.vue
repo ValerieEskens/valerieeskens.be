@@ -27,6 +27,7 @@ export default {
   text-align: left;
   font-size: 16px;
   position: relative;
+  background-color: mix(map-get($colors, 'highlight'), #fff, 70%);
 }
 
 .highlight__author {
