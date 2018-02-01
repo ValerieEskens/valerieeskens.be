@@ -1,6 +1,6 @@
 <template>
   <div class="highlight" @click="goToSource()">
-      <img class="quote-icon" src="../../assets/quote.png" alt="quote">
+      <img class="highlight__quote-icon" src="../../assets/quote.png" alt="quote">
       <div class="highlight__content">{{highlight}}</div>
       <div class="highlight__author">— {{author}}</div>
   </div>
@@ -22,7 +22,7 @@ export default {
 @import '../../styles/colors';
 
 .highlight {
-  padding-top: 30px;
+  padding: 30px 15px 15px;
   line-height: 1.4;
   text-align: left;
   font-size: 16px;
@@ -39,12 +39,11 @@ export default {
   text-indent: 50px;
 }
 
-.quote-icon {
+.highlight__quote-icon {
   opacity: .15;
   position: absolute;
   top: -24px;
   left: -15px;
   width: 100px;
 }
-
 </style>
