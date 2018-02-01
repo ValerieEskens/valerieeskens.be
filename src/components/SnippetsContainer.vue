@@ -19,15 +19,17 @@
         :image="article.image"
         :source="article.source"
         :author="article.author"
+        :style="{ order: randomOrder() }"
       />
       <Highlight
         v-show="filteredOn(types.HIGHLIGHTS) || !filterActivated"
         class="snippet"
         v-for="(highlight, key) in highlights"
         :key="key"
-        :content="highlight.highlight"
+        :highlight="highlight.highlight"
         :source="highlight.source"
         :author="highlight.author"
+        :style="{ order: randomOrder() }"
       />
     </div>
   </div>
@@ -59,11 +61,17 @@ export default {
   created () {
   },
   computed: {
+    totalSnippets() {
+      return articles.length + highlights.length
+    },
     filterActivated () {
       return this.filter !== ''
     }
   },
   methods: {
+    randomOrder () {
+      return Math.floor(Math.random() * this.totalSnippets + 1)
+    },
     filteredOn (type) {
       return this.filter === type
     },
