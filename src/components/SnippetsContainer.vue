@@ -1,22 +1,18 @@
 <template>
   <div>
-    <p @click="filter('highlight')">highlights</p>
-    <p @click="filter('article')">articles</p>
-    <p>blogposts</p>
-    <p>valerie</p>
+    <nav>
+      <NavItem
+        v-for="(type, key) in types"
+        :key="key"
+        :type="type"
+        @click="filter(type)"
+        :active="filteredOn(type)"
+      />
+    </nav>
+
     <div class="snippets">
-      <!-- <component
-        class="snippet"
-        :class="snippet.type"
-        v-for="(snippet, key) in filteredSnippets"
-        :key="`${snippet.type}-${key}`"
-        :is="snippet.type"
-        :snippet="snippet"
-        :style="{'grid-area': snippet.enlarge}"
-      >
-      </component> -->
       <Article
-        v-if="filteredOn('article')"
+        v-show="filteredOn(types.ARTICLES) || !filtersActivated"
         class="snippet"
         v-for="(article, key) in articles"
         :key="key+10"
@@ -24,9 +20,8 @@
         :source="article.source"
         :author="article.author"
       />
-
-    <Highlight
-        v-if="filteredOn('highlight')"
+      <Highlight
+        v-show="filteredOn(types.HIGHLIGHTS) || !filtersActivated"
         class="snippet"
         v-for="(highlight, key) in highlights"
         :key="key"
@@ -43,55 +38,30 @@ import Highlight from '@/components/snippets/Highlight.vue'
 import highlights from '@/data/highlights.json'
 import Article from '@/components/snippets/Article.vue'
 import articles from '@/data/articles.json'
-import { EventBus } from '@/eventbus'
-
-const FILTERS = {
-  articles: 'articles',
-  highlights: 'highlights',
-  valerie: 'valerie',
-  blogposts: 'blogposts'
-}
+import NavItem from '@/components/NavItem'
 
 export default {
   name: 'SnippetsContainer',
-  components: { Highlight, Article },
+  components: { Highlight, Article, NavItem },
   data () {
     return {
       articles: [...articles, ...articles],
       highlights: [...highlights, ...highlights],
-      snippets: [...articles, ...highlights, ...articles, ...highlights],
-      filters: []
+      types: {
+        ARTICLES: 'articles',
+        HIGHLIGHTS: 'highlights',
+        VALERIE: 'valerie',
+        BLOGPOST: 'blogposts'
+      },
+      filters: ['articles']
     }
   },
   created () {
     this.randomizedSnippets()
-
-    EventBus.$on('filter', filters => {
-      debugger
-      if (filters.length === 0) {
-        this.filters = [ FILTERS.articles, FILTERS.highlights, FILTERS.bolgposts, FILTERS.valerie ]
-      } else {
-        this.filters = filters
-      }
-    })
   },
   computed: {
-    filteredSnippets () {
-      if (this.filters.length === 0) {
-        return this.snippets
-      } else {
-        const bla = this.snippets.filter((snippet) => {
-          return this.filters.indexOf(snippet.type)
-        })
-        console.log(bla)
-        return bla
-      }
-      
-    },
-    filteredSnippetsss () {
-      return this.snippets.filter((snippet) => {
-        return this.filters.indexOf(snippet.type)
-      })
+    filtersActivated () {
+      return this.filters.length !== 0
     }
   },
   methods: {

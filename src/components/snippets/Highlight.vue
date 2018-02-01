@@ -9,7 +9,6 @@
 <script>
 export default {
   name: 'Highlight',
-  // props: ['snippet'],
   props: ['source', 'author', 'highlight'],
   methods: {
     goToSource () {
@@ -28,7 +27,7 @@ export default {
   text-align: left;
   font-size: 16px;
   position: relative;
-  background-color: mix(map-get($colors, 'highlight'), #fff, 70%);
+  background-color: mix(map-get($colors, 'highlights'), #fff, 70%);
 }
 
 .highlight__author {
