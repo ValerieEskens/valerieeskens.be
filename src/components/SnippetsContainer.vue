@@ -5,14 +5,14 @@
         v-for="(type, key) in types"
         :key="key"
         :type="type"
-        @click="filter(type)"
+        @click="filterOn(type)"
         :active="filteredOn(type)"
       />
     </nav>
 
     <div class="snippets">
       <Article
-        v-show="filteredOn(types.ARTICLES) || !filtersActivated"
+        v-show="filteredOn(types.ARTICLES) || !filterActivated"
         class="snippet"
         v-for="(article, key) in articles"
         :key="key+10"
@@ -21,7 +21,7 @@
         :author="article.author"
       />
       <Highlight
-        v-show="filteredOn(types.HIGHLIGHTS) || !filtersActivated"
+        v-show="filteredOn(types.HIGHLIGHTS) || !filterActivated"
         class="snippet"
         v-for="(highlight, key) in highlights"
         :key="key"
@@ -53,40 +53,26 @@ export default {
         VALERIE: 'valerie',
         BLOGPOST: 'blogposts'
       },
-      filters: ['articles']
+      filter: ''
     }
   },
   created () {
-    this.randomizedSnippets()
   },
   computed: {
-    filtersActivated () {
-      return this.filters.length !== 0
+    filterActivated () {
+      return this.filter !== ''
     }
   },
   methods: {
     filteredOn (type) {
-      return this.filters.indexOf(type) !== -1
+      return this.filter === type
     },
-    filter (filter) {
-      const filterIndex = this.filters.indexOf(filter)
-      if (filterIndex !== -1) {
-        this.filters.splice(filterIndex, 1)
+    filterOn (type) {
+      if (this.filteredOn(type)) {
+        this.filter = ''
       } else {
-        this.filters.push(filter)
+        this.filter = type
       }
-    },
-    randomizedSnippets () {
-      let currentIndex = this.snippets.length
-      let myRandomizedSnippets = this.snippets.slice(0)
-      while (currentIndex !== 0) {
-        let randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex -= 1
-        let temporarySnippet = myRandomizedSnippets[currentIndex]
-        myRandomizedSnippets[currentIndex] = myRandomizedSnippets[randomIndex]
-        myRandomizedSnippets[randomIndex] = temporarySnippet
-      }
-      this.snippets = myRandomizedSnippets
     }
   }
 }
