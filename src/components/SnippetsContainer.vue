@@ -11,7 +11,6 @@
     </nav>
 
     <div class="snippets">
-
       <Snippet
         v-for="(snippet, key) in filteredSnippets"
         :key="key"
@@ -19,6 +18,7 @@
         :source="snippet.source"
         :author="snippet.author"
         :content="snippet.content"
+        :type="snippet.type"
         :style="{ order: randomOrder() }"
       />
     </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import highlights from '@/data/highlights.json'
+import quotes from '@/data/quotes.json'
 import articles from '@/data/articles.json'
 
 import Snippet from '@/components/snippet.vue'
@@ -37,10 +37,10 @@ export default {
   components: { NavItem, Snippet },
   data () {
     return {
-      snippets: [...articles, ...highlights],
+      snippets: [...articles, ...quotes],
       types: {
         ARTICLE: 'article',
-        HIGHLIGHTS: 'highlight',
+        QUOTE: 'quote',
         VALERIE: 'valerie',
         BLOGPOST: 'blogpost'
       },
@@ -50,24 +50,21 @@ export default {
   created () {
   },
   computed: {
-    totalSnippets () {
-      return articles.length + highlights.length
-    },
     filterActivated () {
       return this.filter !== ''
     },
     filteredSnippets () {
       if (this.filter === '') {
-        return this.snippets;
+        return this.snippets
       }
       return this.snippets.filter((snippet) => {
-        return snippet.type === this.filter;
-      });
+        return snippet.type === this.filter
+      })
     }
   },
   methods: {
     randomOrder () {
-      return Math.floor(Math.random() * this.totalSnippets + 1)
+      return Math.floor(Math.random() * this.snippets.length + 1)
     },
     filteredOn (type) {
       return this.filter === type
