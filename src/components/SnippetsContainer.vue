@@ -29,7 +29,7 @@
 import quotes from '@/data/quotes.json'
 import articles from '@/data/articles.json'
 
-import Snippet from '@/components/snippet.vue'
+import Snippet from '@/components/Snippet.vue'
 import NavItem from '@/components/NavItem'
 
 export default {
