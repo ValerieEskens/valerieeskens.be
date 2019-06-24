@@ -1,94 +1,74 @@
 body {
-	background: #FCEBD0;
+    background: #FFFFEA;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .container {
-	margin: 0 auto;
-	width: 500px;
-	padding: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5px;
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.photo {
-	border-radius: 50%;
-	width: 500px;
-	height: 500px;
-	box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.5);
+.block {
+    width: 31%;
+    padding: 5px;
+    position: relative;
 }
 
-.name {
-	text-align: center;
+.block-img {
+    width: 100%;
 }
 
-.social-media-container {
+.block-info {
+    visibility: hidden;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background: rgba(255,255,255,0.9);
+    color: darkslategray;
     text-align: center;
 }
 
-.social-media {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
+.block:hover .block-info {
+    visibility: visible;
 }
 
-.social-media:hover {
-	background: #D9B98D;
-}
-
-.social-media img {
-    height: 100%;
+.h1 {
+    font-size: 16px;
+    margin: 40% 5px;
+    font-weight: 600;
 }
 
 @media (max-width: 700px) {
-	.container {
-		width: 300px;
-		padding: 50px;
-	}
+    .container {
+        top: 0;
+        transform: none;
+    }
 
-	.photo {
-		width: 300px;
-		height: 300px;
-	}
+    .block {
+        width: 48%;
+    }
+
+    .h1 {
+        font-size: 1.2rem;
+    }
 }
 
-@media (max-width: 400px) {
-	.container {
-		width: 200px;
-		padding: 30px;
-	}
-
-	.photo {
-		width: 200px;
-		height: 200px;
-	}
-
-	.social-media {
-	    height: 30px;
-	    width: 30px;
-	}
-
-	.name {
-		font-size: 24px;
-	}
-}
-
-@media (max-width: 260px) {
-	.container {
-		width: 150px;
-		padding: 20px;
-	}
-
-	.photo {
-		width: 150px;
-		height: 150px;
-	}
-
-	.social-media {
-	    height: 20px;
-	    width: 20px;
-	}
-
-	.name {
-		font-size: 18px;
-	}
+@media (max-width: 510px) { 
+    .block {
+        width: 100%;
+    }
+    .h1 {
+        font-size: 1.4rem;
+    }
 }

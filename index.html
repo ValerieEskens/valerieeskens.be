@@ -6,29 +6,69 @@
 	<meta name="author" content="" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 	<title>Valerie Eskens</title>
-	<link href="style.css" rel="stylesheet" />
+	<link href="style2.css" rel="stylesheet" />
 </head>
 <body>
 
 	<div class="container">
-		<img class="photo" src="valerie.JPG">
-		<h1 class="name">Valerie Eskens</h1>
-
-		<div class="social-media-container">
-			<a class="social-media" href="https://www.instagram.com/valeriescreativities/">
-				<img src="socialmedia/instagram.png">
-			</a>
-			<a class="social-media" href="https://www.linkedin.com/in/valerie-eskens-11345165/">
-				<img src="socialmedia/linkedin.png">
-			</a>
-			<a class="social-media" href="mailto:valerieeskens@gmail.com">
-				<img src="socialmedia/mail.png">
-			</a>
-			<a class="social-media" href="https://www.2dehands.be/profiel/7718189/">
-				<img src="socialmedia/2dehands.png">
-			</a>
-		</div>
+		<a class="block" id="block-1" href="http://www.elekh.be/" target="_blank">
+            <img class="block-img" src="img/elekh.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">Website Elektriciteitswerken Hollanders</h1>
+            </div>
+        </a>
+        <a class="block" id="block-2" href="https://www.letterenentetteren.be/" target="_blank">
+            <img class="block-img" src="img/letterenentetteren.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">Logo en website Letteren & Tetteren</h1>
+            </div>
+        </a>
+        <div class="block" id="block-3" href="https://www.linkedin.com/in/valerie-eskens-11345165/" target="_blank">
+            <img class="block-img" src="img/linkedin.jpg" alt="">
+        </div>
+        <div class="block" id="block-4">
+            <img class="block-img" src="img/logo-ve.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">Logo Illustrator opleiding</h1>
+            </div>
+        </div>
+        <a class="block" id="block-5" href="mailto:valerieeskens@gmail.com">
+            <img class="block-img" src="img/mail.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">valerieeskens@gmail.com</h1>
+            </div>
+        </a>
+        <a class="block" id="block-6" href="https://www.scoutingberlaar.be/" target="_blank">
+            <img class="block-img" src="img/scouts.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">Website Scouting Berlaar</h1>
+            </div>
+        </a>
+        <div class="block" id="block-7">
+            <img class="block-img" src="img/valerie.jpg" alt="">
+        </div>
+        <div class="block" id="block-8">
+            <img class="block-img" src="img/cheesypic.png" alt="">
+            <div class="block-info">
+                <h1 class="h1">Businesscard Photobooth Cheesypic</h1>
+            </div>
+        </div>
+        <div class="block" id="block-9">
+            <img class="block-img" src="img/geboorteposter.jpg" alt="">
+            <div class="block-info">
+                <h1 class="h1">Geboorteposter passend bij geboortekaartje</h1>
+            </div>
+        </div>
 	</div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let i = 9;
+            while(i > 0) {
+                document.getElementById("block-" + i).style.order = Math.floor(Math.random() * 10);
+                i--;
+            }
+        })
+    </script>
 </body>
 </html>
